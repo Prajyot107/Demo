@@ -1,0 +1,63 @@
+
+demo Token
+
+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
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Prajyot Phursutkar is inviting you to a scheduled Zoom meeting.
+
+Topic: Prajyot Phursutkar's Personal Meeting Room
+
+Join Zoom Meeting
+https://us05web.zoom.us/j/6347568383?pwd=Q25yTGwyamtlejh3d3QrTFc2YzJpQT09
+
+Meeting ID: 634 756 8383
+Passcode: 107
+
+
+
+****************
+frontEnd
+ npm i html2canvas
+npm i jsPDF
+
+
+
+***********TS************************
+generatepdf(divId)
+   {
+     alert(name);
+       let data = document.getElementById('mypdf');  
+       html2canvas(data).then(canvas => {
+       const contentDataURL = canvas.toDataURL('image/png')  
+       let pdf = new jsPDF('l', 'cm', 'a4'); 
+       pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);  
+       pdf.save('SianctionLetter.pdf');   
+     }); 
+   }
+**************************BackEnd Mail*******************************
+@RequestMapping(value="/send",method=RequestMethod.GET)
+	public String sendmaillll()
+	{
+		SimpleMailMessage m=new SimpleMailMessage();
+		m.setTo("pushpakshewale007@gmail.com");
+		m.setSentDate(new Date());
+		m.setSubject("mail send practice");
+		m.setText("hello world");
+		
+		mail.send(m);
+		return "mail send successfully";
+	}
